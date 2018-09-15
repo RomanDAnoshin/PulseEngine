@@ -5,7 +5,7 @@ namespace Match_3
 {
     class ResourceLoader : AbstructResourceLoader
     {
-        public const string ResourcesDir = "Resources\\";
+        public const string ResourcesDir = "..\\..\\Resources\\";
         public const string TexturesDir = ResourcesDir + "Textures\\";
         public const string FontsDir = ResourcesDir + "Fonts\\";
         private const int spacing = 1;
@@ -60,7 +60,7 @@ namespace Match_3
             ButtonOkTexture = new Texture(TexturesDir + "ButtonOk.png");
 
             donutSprites = AbstractInitializer.GetSpritesInTextureRow(DonutsTexture, 6);
-            cellSprites = AbstractInitializer.GetSpritesInTextureRow(CellTexture, 5);
+            cellSprites = AbstractInitializer.GetSpritesInTextureRow(CellTexture, 4);
             buttonPlaySprites = AbstractInitializer.GetSpritesInTextureRow(ButtonPlayTexture, 5);
             buttonOkSprites = AbstractInitializer.GetSpritesInTextureRow(ButtonOkTexture, 5);
 

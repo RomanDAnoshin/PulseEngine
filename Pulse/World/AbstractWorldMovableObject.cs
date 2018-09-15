@@ -5,7 +5,7 @@ namespace Pulse.World
 {
     public abstract class AbstractWorldMovableObject : AbstractWorldObject
     {
-        public bool IsMoved = false;
+        public bool IsMoving = false;
         public float MoveSpeed;
         protected Vector2f normalizedMoveVector = Vector2f.Zero;
         public virtual Vector2f NormalizedMoveVector
@@ -33,20 +33,20 @@ namespace Pulse.World
                 var moveVector = newPosition - Position;
                 var length = MathF.GetVectorLength(moveVector);
                 normalizedMoveVector = moveVector / length;
-                IsMoved = true;
+                IsMoving = true;
             }
         }
 
         public virtual void UpdateMove(float dt)
         {
-            if (IsMoved) {
+            if (IsMoving) {
                 Position += NormalizedMoveVector * dt * MoveSpeed;
                 if (NormalizedMoveVector.Y != 0) {
                     // Vertical move
                     if (NormalizedMoveVector.Y > 0) {
                         // Move down
                         if (Position.Y >= NewPosition.Y) {
-                            IsMoved = false;
+                            IsMoving = false;
                             var position = Position;
                             position.Y = NewPosition.Y;
                             normalizedMoveVector.Y = 0;
@@ -54,7 +54,7 @@ namespace Pulse.World
                     } else {
                         // Move up
                         if (Position.Y <= NewPosition.Y) {
-                            IsMoved = false;
+                            IsMoving = false;
                             var position = Position;
                             position.Y = NewPosition.Y;
                             normalizedMoveVector.Y = 0;
@@ -66,7 +66,7 @@ namespace Pulse.World
                     if (NormalizedMoveVector.X > 0) {
                         // Move right
                         if (Position.X >= NewPosition.X) {
-                            IsMoved = false;
+                            IsMoving = false;
                             var position = Position;
                             position.X = NewPosition.X;
                             normalizedMoveVector.X = 0;
@@ -74,7 +74,7 @@ namespace Pulse.World
                     } else {
                         // Move left
                         if (Position.X <= NewPosition.X) {
-                            IsMoved = false;
+                            IsMoving = false;
                             var position = Position;
                             position.X = NewPosition.X;
                             normalizedMoveVector.X = 0;

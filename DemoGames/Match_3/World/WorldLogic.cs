@@ -10,7 +10,7 @@ namespace Match_3.World
 {
     enum WorldLogicState
     {
-        DonutsMoved,
+        DonutsMoving,
         FindAndDeleteMatches,
         MoveToEmptyAndSpawn,
         WaitInput
@@ -49,7 +49,7 @@ namespace Match_3.World
         public override void Update(float dt)
         {
             switch (logicState) {
-                case WorldLogicState.DonutsMoved:
+                case WorldLogicState.DonutsMoving:
                     if (!AreDonutsMoved()) {
                         logicState = WorldLogicState.FindAndDeleteMatches;
                         return;
@@ -80,16 +80,31 @@ namespace Match_3.World
                         selectedCells[1].CellState = ClickableCellState.Normal;
                         selectedCells[0] = null;
                         selectedCells[1] = null;
-                        logicState = WorldLogicState.DonutsMoved;
+                        logicState = WorldLogicState.DonutsMoving;
+                        for (var y = 0; y < grid.CellCount.Y; y++) {
+                            for (var x = 0; x < grid.CellCount.X; x++) {
+                                cells[y, x].CellState = ClickableCellState.Disabled;
+                            }
+                        }
                         return;
                     } else {
+                        for (var y = 0; y < grid.CellCount.Y; y++) {
+                            for (var x = 0; x < grid.CellCount.X; x++) {
+                                cells[y, x].CellState = ClickableCellState.Normal;
+                            }
+                        }
                         logicState = WorldLogicState.WaitInput;
                         return;
                     }
                 case WorldLogicState.MoveToEmptyAndSpawn:
                     MoveDonutsToEmptyCells();
                     SpawnAndMoveToEmptyCells();
-                    logicState = WorldLogicState.DonutsMoved;
+                    logicState = WorldLogicState.DonutsMoving;
+                    for (var y = 0; y < grid.CellCount.Y; y++) {
+                        for (var x = 0; x < grid.CellCount.X; x++) {
+                            cells[y, x].CellState = ClickableCellState.Disabled;
+                        }
+                    }
                     return;
                 case WorldLogicState.WaitInput:
                     if(
@@ -98,7 +113,12 @@ namespace Match_3.World
                     ) {
                         RebindDonutAndMoveToNewOwner(selectedCells[0], selectedCells[1]);
                         RebindDonutAndMoveToNewOwner(selectedCells[1], selectedCells[0]);
-                        logicState = WorldLogicState.DonutsMoved;
+                        logicState = WorldLogicState.DonutsMoving;
+                        for (var y = 0; y < grid.CellCount.Y; y++) {
+                            for (var x = 0; x < grid.CellCount.X; x++) {
+                                cells[y, x].CellState = ClickableCellState.Disabled;
+                            }
+                        }
                         return;
                     }
                     return;
@@ -112,7 +132,7 @@ namespace Match_3.World
                 for (var x = 0; x < grid.CellCount.X; x++) {
                     if (
                         cells[y, x].Donut != null &&
-                        cells[y, x].Donut.IsMoved
+                        cells[y, x].Donut.IsMoving
                     ) {
                         return true;
                     }
