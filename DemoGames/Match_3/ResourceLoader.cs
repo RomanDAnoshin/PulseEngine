@@ -5,7 +5,7 @@ namespace Match_3
 {
     class ResourceLoader : AbstructResourceLoader
     {
-        public const string ResourcesDir = "..\\..\\Resources\\";
+        public const string ResourcesDir = "Resources\\";
         public const string TexturesDir = ResourcesDir + "Textures\\";
         public const string FontsDir = ResourcesDir + "Fonts\\";
         private const int spacing = 1;
@@ -23,7 +23,7 @@ namespace Match_3
         {
             get
             {
-                return AbstractInitializer.GetSpritesArrayCopy(donutSprites);
+                return AbstractInitializer.GetSpritesRowCopy(donutSprites);
             }
         }
         private static Sprite[] cellSprites = null;
@@ -31,7 +31,7 @@ namespace Match_3
         {
             get
             {
-                return AbstractInitializer.GetSpritesArrayCopy(cellSprites);
+                return AbstractInitializer.GetSpritesRowCopy(cellSprites);
             }
         }
         private static Sprite[] buttonPlaySprites = null;
@@ -39,7 +39,7 @@ namespace Match_3
         {
             get
             {
-                return AbstractInitializer.GetSpritesArrayCopy(buttonPlaySprites);
+                return AbstractInitializer.GetSpritesRowCopy(buttonPlaySprites);
             }
         }
         private static Sprite[] buttonOkSprites = null;
@@ -47,7 +47,7 @@ namespace Match_3
         {
             get
             {
-                return AbstractInitializer.GetSpritesArrayCopy(buttonOkSprites);
+                return AbstractInitializer.GetSpritesRowCopy(buttonOkSprites);
             }
         }
 

@@ -35,6 +35,7 @@ namespace Pulse
                     window.DispatchEvents();
                     UpdateDt();
                     sceneHandler.Update(Dt);
+                    window.SetView(AbstractInitializer.GameView);
                     sceneHandler.Draw(window);
                     window.Display();
                 } else {

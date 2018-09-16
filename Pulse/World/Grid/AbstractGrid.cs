@@ -10,6 +10,12 @@ namespace Pulse.World.Grid
         public override void DeleteNestedObjects()
         {
             if (Cells != null) {
+                for (int y = 0; y < Cells.GetLength(0); y++) {
+                    for (int x = 0; x < Cells.GetLength(1); x++) {
+                        Cells[y, x].DeleteNestedObjects();
+                        Cells[y, x] = null;
+                    }
+                }
                 Cells = null;
             }
         }
@@ -35,7 +41,5 @@ namespace Pulse.World.Grid
                 }
             }
         }
-
-        public abstract void MakeCells();
     }
 }

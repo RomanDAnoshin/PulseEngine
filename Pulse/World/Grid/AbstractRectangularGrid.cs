@@ -7,16 +7,15 @@ namespace Pulse.World.Grid
     {
         public int Spacing = 0;
         public int Offset = 0;
-        public Vector2i Size = Vector2i.Zero;
+        public Vector2i CellCount = Vector2i.Zero;
         public Vector2f CellSize = Vector2f.Zero;
 
-        public AbstractRectangularGrid(Vector2i gridSize, Vector2f cellSize)
+        public AbstractRectangularGrid(Vector2i cellCount, Vector2f cellSize, int spacing = 0, int offset = 0)
         {
-            Size = gridSize;
+            CellCount = cellCount;
             CellSize = cellSize;
-            // TODO: RectangularSpriteCell
-            //Cells = new RectangularSpriteCell[Size.Y, Size.X];
-            //MakeCells();
+            Spacing = spacing;
+            Offset = offset;
         }
     }
 }

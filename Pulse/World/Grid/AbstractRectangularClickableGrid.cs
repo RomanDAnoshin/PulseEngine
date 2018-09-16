@@ -9,10 +9,10 @@ namespace Pulse.World.Grid
         public Vector2i CellCount = Vector2i.Zero;
         public Vector2f CellSize = Vector2f.Zero;
 
-        public AbstractRectangularClickableGrid(Vector2i gridSize, Vector2f cellCount, int spacing = 0, int offset = 0)
+        public AbstractRectangularClickableGrid(Vector2i cellCount, Vector2f cellSize, int spacing = 0, int offset = 0)
         {
-            CellCount = gridSize;
-            CellSize = cellCount;
+            CellCount = cellCount;
+            CellSize = cellSize;
             Spacing = spacing;
             Offset = offset;
         }

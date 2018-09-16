@@ -50,7 +50,7 @@ namespace Match_3.World
         {
             switch (logicState) {
                 case WorldLogicState.DonutsMoving:
-                    if (!AreDonutsMoved()) {
+                    if (!AreDonutsMoving()) {
                         logicState = WorldLogicState.FindAndDeleteMatches;
                         return;
                     }
@@ -126,7 +126,7 @@ namespace Match_3.World
             }
         }
 
-        public bool AreDonutsMoved()
+        public bool AreDonutsMoving()
         {
             for (var y = 0; y < grid.CellCount.Y; y++) {
                 for (var x = 0; x < grid.CellCount.X; x++) {
@@ -141,7 +141,7 @@ namespace Match_3.World
             return false;
         }
 
-        public void DontMoveToPoint(Donut donut, Vector2f point)
+        public void DonutMoveToPoint(Donut donut, Vector2f point)
         {
             donut.NewPosition = point;
         }

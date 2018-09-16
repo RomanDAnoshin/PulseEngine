@@ -74,6 +74,7 @@
     <Compile Include="System\WindowInput.cs" />
     <Compile Include="World\AbstractWorld.cs" />
     <Compile Include="World\AbstractWorldLogic.cs" />
+    <Compile Include="World\AbstractWorldMovableFourDirectionsObject.cs" />
     <Compile Include="World\AbstractWorldMovableObject.cs" />
     <Compile Include="World\AbstractWorldObject.cs" />
     <Compile Include="World\Grid\AbstractClickableGrid.cs" />
@@ -86,8 +87,11 @@
     <Compile Include="World\Grid\Cell\AbstractRoundCell.cs" />
     <Compile Include="World\Grid\AbstractGrid.cs" />
     <Compile Include="World\Grid\Cell\AbstractCell.cs" />
+    <Compile Include="World\Grid\Cell\PolygonalSpriteCell.cs" />
     <Compile Include="World\Grid\Cell\PolygonalSpriteClickableCell.cs" />
+    <Compile Include="World\Grid\Cell\RectangularSpriteCell.cs" />
     <Compile Include="World\Grid\Cell\RectangularSpriteClickableCell.cs" />
+    <Compile Include="World\Grid\Cell\RoundSpriteCell.cs" />
     <Compile Include="World\Grid\Cell\RoundSpriteClickableCell.cs" />
     <Compile Include="World\Grid\AbstractRectangularClickableGrid.cs" />
     <Compile Include="World\Grid\AbstractRectangularGrid.cs" />

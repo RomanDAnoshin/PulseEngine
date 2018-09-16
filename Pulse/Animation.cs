@@ -1,4 +1,5 @@
 ﻿using SFML.Graphics;
+using SFML.System;
 
 namespace Pulse
 {
@@ -8,6 +9,19 @@ namespace Pulse
         public float Speed = 0.005f;
         public float hz = 0f;
         public int CurrentFrameIndex = 0;
+        public Vector2f Position
+        {
+            get
+            {
+                return Sprites[CurrentFrameIndex].Position;
+            }
+            set
+            {
+                for (var i = 0; i < Sprites.Length; i++) {
+                    Sprites[i].Position = value;
+                }
+            }
+        }
 
         public Animation(Sprite[] sprites)
         {

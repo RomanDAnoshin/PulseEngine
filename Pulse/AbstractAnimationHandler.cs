@@ -1,11 +1,24 @@
 ﻿using SFML.Graphics;
-using System.Collections.Generic;
+using SFML.System;
 
 namespace Pulse
 {
     public class AbstractAnimationHandler : AbstractGameObjectContainer
     {
         public int CurrentAnimationIndex = 0;
+        public Vector2f Position
+        {
+            get
+            {
+                return ((Animation)Collection[CurrentAnimationIndex]).Position;
+            }
+            set
+            {
+                for(var i = 0; i < Collection.Count; i++) {
+                    ((Animation)Collection[CurrentAnimationIndex]).Position = value;
+                }
+            }
+        }
 
         public override void DeleteNestedObjects()
         {
