@@ -1,7 +1,7 @@
 ﻿using Pulse.System;
 using Pulse.World;
+using Pulse.World.Grid;
 using Pulse.World.Grid.Cell;
-using SFML.Graphics;
 using SFML.System;
 
 namespace WanderingPasserby
@@ -16,12 +16,12 @@ namespace WanderingPasserby
     class WorldLogic : AbstractWorldLogic
     {
         private World world = null;
-        private WorldGrid grid = null;
+        private RectangularSpriteGrid grid = null;
         private readonly RectangularSpriteCell[,] cells = null;
         private WorldLogicState logicState;
         private int stepsCount = 0;
 
-        public WorldLogic(World world, WorldGrid grid, Vector2i passerbyPositionInIndices, int stepsCount)
+        public WorldLogic(World world, RectangularSpriteGrid grid, Vector2i passerbyPositionInIndices, int stepsCount)
         {
             this.world = world;
             this.grid = grid;

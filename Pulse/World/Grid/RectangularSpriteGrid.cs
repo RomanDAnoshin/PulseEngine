@@ -1,12 +1,12 @@
-﻿using Pulse.World.Grid;
-using Pulse.World.Grid.Cell;
+﻿using Pulse.World.Grid.Cell;
+using SFML.Graphics;
 using SFML.System;
 
-namespace WanderingPasserby
+namespace Pulse.World.Grid
 {
-    class WorldGrid : AbstractRectangularGrid
+    public class RectangularSpriteGrid : AbstractRectangularGrid
     {
-        public WorldGrid(Vector2i cellCount, Vector2f cellSize) : base(cellCount, cellSize, spacing: 0, offset: 0)
+        public RectangularSpriteGrid(Vector2i cellCount, Vector2f cellSize, Sprite sprite, float spacing = 0, float offset = 0) : base(cellCount, cellSize, spacing, offset)
         {
             Cells = new RectangularSpriteCell[CellCount.Y, CellCount.X];
             for (var i = 0; i < CellCount.Y; i++) {
@@ -15,7 +15,7 @@ namespace WanderingPasserby
                         j * (CellSize.X + Spacing) + Offset,
                         i * (CellSize.Y + Spacing) + Offset
                         );
-                    Cells[i, j] = new RectangularSpriteCell(position, CellSize, ResourceLoader.CellSprite);
+                    Cells[i, j] = new RectangularSpriteCell(position, CellSize, sprite);
                 }
             }
         }

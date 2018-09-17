@@ -49,6 +49,7 @@
     <Compile Include="AbstractGameObjectContainer.cs" />
     <Compile Include="Animation.cs" />
     <Compile Include="AbstractAnimationHandler.cs" />
+    <Compile Include="FourDirectionsMoveAnimatoinsHandler.cs" />
     <Compile Include="GUI\GUIObject\AbstractGUIObject.cs" />
     <Compile Include="GUI\GUIObject\Button\PolygonalSpriteButton.cs" />
     <Compile Include="GUI\GUIObject\Button\RectangularSpriteButton.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="World\Grid\Cell\RoundSpriteClickableCell.cs" />
     <Compile Include="World\Grid\AbstractRectangularClickableGrid.cs" />
     <Compile Include="World\Grid\AbstractRectangularGrid.cs" />
+    <Compile Include="World\Grid\RectangularSpriteGrid.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SFMLNet\Audio\sfml-audio.csproj">

@@ -3,9 +3,9 @@ using Pulse.World;
 using SFML.Graphics;
 using SFML.System;
 
-namespace WanderingPasserby
+namespace KursachADM
 {
-    class Passerby : AbstractWorldMovableFourDirectionsObject
+    class Man : AbstractWorldMovableFourDirectionsObject
     {
         public static Vector2f Size = new Vector2f(60f);
         public FourDirectionsMoveAnimatoinsHandler AnimatoinsHandler = null;
@@ -22,10 +22,10 @@ namespace WanderingPasserby
             }
         }
 
-        public Passerby(Vector2f position)
+        public Man(Vector2f position)
         {
             MoveSpeed = 200f;
-            AnimatoinsHandler = new FourDirectionsMoveAnimatoinsHandler(ResourceLoader.PasserbyMoveAnimationsSprites, MoveDirection);
+            AnimatoinsHandler = new FourDirectionsMoveAnimatoinsHandler(ResourceLoader.ManMoveAnimationsSprites, MoveDirection);
             Position = position;
         }
 

@@ -15,7 +15,7 @@ namespace Pulse
             set
             {
                 for(var i = 0; i < Collection.Count; i++) {
-                    ((Animation)Collection[CurrentAnimationIndex]).Position = value;
+                    ((Animation)Collection[i]).Position = value;
                 }
             }
         }
