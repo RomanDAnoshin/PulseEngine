@@ -1,34 +1,34 @@
-﻿using Pulse;
+﻿using KursachADM.Interfaces;
 using Pulse.Scene;
 using SFML.Graphics;
 
-namespace KursachADM
+namespace KursachADM.Scenes
 {
-    class Scene : AbstractScene
+    class MenuScene : AbstractScene
     {
-        public Scene()
+        public MenuScene()
         {
-            Background = new BackgroundColor();
-            World = new World();
+            Background = new Background();
+            GUI = new MenuInterface();
         }
 
         public override void DeleteNestedObjects()
         {
             Background = null;
 
-            World.DeleteNestedObjects();
-            World = null;
+            GUI.DeleteNestedObjects();
+            GUI = null;
         }
 
         public override void Update(float dt)
         {
-            World.Update(dt);
+            GUI.Update(dt);
         }
 
         public override void Draw(RenderWindow window)
         {
             Background.Draw(window);
-            World.Draw(window);
+            GUI.Draw(window);
         }
     }
 }

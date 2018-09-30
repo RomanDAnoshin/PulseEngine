@@ -24,7 +24,7 @@ namespace KursachADM
                 case CellType.Ground: Weight = 5; return;
                 case CellType.Water: Weight = 10; return;
                 case CellType.Asphalt: Weight = 1; return;
-                case CellType.Rock: Weight = 1000; return;
+                case CellType.Rock: Weight = int.MaxValue; return;
             }
         }
     }

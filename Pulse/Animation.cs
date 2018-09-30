@@ -6,7 +6,7 @@ namespace Pulse
     public class Animation : AbstractGameObject
     {
         public Sprite[] Sprites = null;
-        public float Speed = 0.005f;
+        public float Speed = 0f;
         public float hz = 0f;
         public int CurrentFrameIndex = 0;
         public Vector2f Position

@@ -11,24 +11,24 @@ namespace WanderingPasserby
         public RectangularSpriteGrid Grid = null;
         public AbstractWorldLogic WorldLogic = null;
         public static Vector2f CellSize = new Vector2f(60f);
+        public int StepsCount = 10;
         public Passerby Passerby = null;
         public Home Home = null;
 
         public World()
         {
-            int stepsCount = 10;
             Vector2i passerbyPositionInIndices = new Vector2i(
-                MathF.RandomInt(stepsCount + 1, 320 - (stepsCount + 1)), 
-                MathF.RandomInt(stepsCount + 1, 320 - (stepsCount + 1))
+                MathF.RandomInt(StepsCount + 1, 320 - (StepsCount + 1)), 
+                MathF.RandomInt(StepsCount + 1, 320 - (StepsCount + 1))
                 );
             
             var gridSize = new Vector2i(
-                passerbyPositionInIndices.X + stepsCount + 1, 
-                passerbyPositionInIndices.Y + stepsCount + 1
+                passerbyPositionInIndices.X + StepsCount + 1, 
+                passerbyPositionInIndices.Y + StepsCount + 1
                 );
             Grid = new RectangularSpriteGrid(gridSize, CellSize, ResourceLoader.CellSprite);
             
-            WorldLogic = new WorldLogic(this, Grid, passerbyPositionInIndices, stepsCount);
+            WorldLogic = new WorldLogic(this, Grid, passerbyPositionInIndices);
         }
 
         public override void DeleteNestedObjects()
@@ -49,6 +49,7 @@ namespace WanderingPasserby
         {
             Initializer.GameView.Center = Passerby.Position;
             Grid.Draw(window);
+            Home.Draw(window);
             Passerby.Draw(window);
         }
     }

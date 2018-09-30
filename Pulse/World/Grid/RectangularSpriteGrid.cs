@@ -8,14 +8,14 @@ namespace Pulse.World.Grid
     {
         public RectangularSpriteGrid(Vector2i cellCount, Vector2f cellSize, Sprite sprite, float spacing = 0, float offset = 0) : base(cellCount, cellSize, spacing, offset)
         {
-            Cells = new RectangularSpriteCell[CellCount.Y, CellCount.X];
-            for (var i = 0; i < CellCount.Y; i++) {
-                for (var j = 0; j < CellCount.X; j++) {
+            Cells = new RectangularSpriteCell[cellCount.Y, cellCount.X];
+            for (var i = 0; i < cellCount.Y; i++) {
+                for (var j = 0; j < cellCount.X; j++) {
                     var position = new Vector2f(
-                        j * (CellSize.X + Spacing) + Offset,
-                        i * (CellSize.Y + Spacing) + Offset
+                        j * (cellSize.X + spacing) + offset,
+                        i * (cellSize.Y + spacing) + offset
                         );
-                    Cells[i, j] = new RectangularSpriteCell(position, CellSize, sprite);
+                    Cells[i, j] = new RectangularSpriteCell(position, cellSize, sprite);
                 }
             }
         }

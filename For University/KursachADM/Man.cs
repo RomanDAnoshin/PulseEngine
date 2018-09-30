@@ -24,8 +24,13 @@ namespace KursachADM
 
         public Man(Vector2f position)
         {
-            MoveSpeed = 200f;
+            MoveSpeed = 80f;
             AnimatoinsHandler = new FourDirectionsMoveAnimatoinsHandler(ResourceLoader.ManMoveAnimationsSprites, MoveDirection);
+            foreach (var obj in AnimatoinsHandler.Collection) {
+                var animation = obj as Animation;
+                animation.Speed = 7;
+            }
+            
             Position = position;
         }
 
@@ -38,7 +43,9 @@ namespace KursachADM
         public override void Update(float dt)
         {
             UpdateMove(dt);
-            AnimatoinsHandler.Update(dt);
+            if (IsMoving) {
+                AnimatoinsHandler.Update(dt);
+            }
         }
 
         public override void Draw(RenderWindow window)

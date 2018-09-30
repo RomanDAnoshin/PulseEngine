@@ -19,15 +19,13 @@ namespace WanderingPasserby
         private RectangularSpriteGrid grid = null;
         private readonly RectangularSpriteCell[,] cells = null;
         private WorldLogicState logicState;
-        private int stepsCount = 0;
 
-        public WorldLogic(World world, RectangularSpriteGrid grid, Vector2i passerbyPositionInIndices, int stepsCount)
+        public WorldLogic(World world, RectangularSpriteGrid grid, Vector2i passerbyPositionInIndices)
         {
             this.world = world;
             this.grid = grid;
             cells = grid.Cells as RectangularSpriteCell[,];
-
-            this.stepsCount = stepsCount;
+            
             SpawnPasserby(cells[passerbyPositionInIndices.Y, passerbyPositionInIndices.X]);
             SpawnHome(cells[grid.CellCount.Y / 2, grid.CellCount.X / 2]);
 
@@ -47,12 +45,12 @@ namespace WanderingPasserby
                         // save yes
                         return;
                     } else {
-                        if(stepsCount == 0) {
+                        if(world.StepsCount == 0) {
                             // save no
                             return;
                         } else {
                             logicState = WorldLogicState.SelectingDirection;
-                            stepsCount--;
+                            world.StepsCount--;
                             return;
                         }
                     }

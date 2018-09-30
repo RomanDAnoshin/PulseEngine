@@ -7,12 +7,12 @@ namespace Pulse
 {
     public class GameLoop
     {
-        private RenderWindow window = null;
-        private SceneHandler sceneHandler = null;
-        private Clock clock = null;
+        protected RenderWindow window = null;
+        protected SceneHandler sceneHandler = null;
+        protected Clock clock = null;
         public static float Dt = 0;
         // Control the speed of the game
-        //const float denominator = 1; 
+        //const float timeSpeed = 1f; 
 
         public GameLoop(RenderWindow window, SceneHandler sceneHandler)
         {
@@ -22,12 +22,12 @@ namespace Pulse
             window.GainedFocus += Window_GainedFocus;
         }
 
-        private void Window_GainedFocus(object sender, EventArgs e)
+        protected void Window_GainedFocus(object sender, EventArgs e)
         {
             clock.Restart();
         }
 
-        public void Update()
+        public virtual void Update()
         {
             while (window.IsOpen)
             {
@@ -35,7 +35,6 @@ namespace Pulse
                     window.DispatchEvents();
                     UpdateDt();
                     sceneHandler.Update(Dt);
-                    window.SetView(AbstractInitializer.GameView);
                     sceneHandler.Draw(window);
                     window.Display();
                 } else {
@@ -44,11 +43,11 @@ namespace Pulse
             }
         }
 
-        private void UpdateDt()
+        protected virtual void UpdateDt()
         {
             Dt = clock.ElapsedTime.AsSeconds();
             clock.Restart();
-            //Dt /= denominator;
+            //Dt *= timeSpeed;
         }
     }
 }

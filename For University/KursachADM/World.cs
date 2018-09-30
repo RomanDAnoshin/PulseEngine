@@ -1,4 +1,5 @@
-﻿using Pulse.World;
+﻿using KursachADM.Interfaces;
+using Pulse.World;
 using SFML.Graphics;
 using SFML.System;
 
@@ -13,11 +14,10 @@ namespace KursachADM
         public StartFinishObject Start = null;
         public StartFinishObject Finish = null;
 
-        public World()
+        public World(PlayInterface playInterface)
         {
             Grid = new WorldGrid(ResourceLoader.GridSize, CellSize);
-
-            WorldLogic = new WorldLogic(this, Grid, ResourceLoader.StartPositionIndices, ResourceLoader.FinishPositionIndices );
+            WorldLogic = new WorldLogic(this, Grid, ResourceLoader.StartPositionIndices, ResourceLoader.FinishPositionIndices, playInterface);
         }
 
         public override void DeleteNestedObjects()
@@ -36,8 +36,9 @@ namespace KursachADM
 
         public override void Draw(RenderWindow window)
         {
-            Initializer.GameView.Center = Man.Position;
             Grid.Draw(window);
+            Start.Draw(window);
+            Finish.Draw(window);
             Man.Draw(window);
         }
     }

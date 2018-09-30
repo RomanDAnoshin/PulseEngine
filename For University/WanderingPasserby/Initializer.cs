@@ -11,6 +11,7 @@ namespace WanderingPasserby
     class Initializer : AbstractInitializer
     {
         public static Vector2u WindowSize = new Vector2u(800, 600);
+        public static View GameView = null;
         public static uint FPSLimit = 60;
 
         public override void Initialization()

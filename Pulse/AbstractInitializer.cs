@@ -8,7 +8,6 @@ namespace Pulse
     public abstract class AbstractInitializer
     {
         public static RenderWindow Window = null;
-        public static View GameView = null;
         public static SceneHandler SceneHandler = null;
         public static GameLoop GameLoop = null;
         public static AbstructResourceLoader ResourceLoader = null;

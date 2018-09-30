@@ -5,6 +5,11 @@ namespace Pulse
     public class BackgroundColor : AbstractGameObject
     {
         public Color Color = Color.Black;
+
+        public BackgroundColor(Color color)
+        {
+            Color = color;
+        }
         
         public override void Draw(RenderWindow window)
         {

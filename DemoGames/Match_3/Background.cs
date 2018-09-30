@@ -26,7 +26,7 @@ namespace Match_3
             }
         }
 
-        public Background(BackgroundType type)
+        public Background(BackgroundType type) : base(ResourceLoader.Colors[(int)type])
         {
             Type = type;
         }
