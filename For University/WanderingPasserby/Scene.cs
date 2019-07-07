@@ -8,7 +8,7 @@ namespace WanderingPasserby
     {
         public Scene()
         {
-            Background = new BackgroundColor();
+            Background = new BackgroundColor(Color.DarkGray);
             World = new World();
         }
 
